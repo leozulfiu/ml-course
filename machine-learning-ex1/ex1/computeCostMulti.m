@@ -14,7 +14,11 @@ J = 0;
 %               You should set J to the cost.
 
 
-
+summation = X * theta;
+summation = summation - y;
+summation = summation .^ 2;
+summed_errors = sum(summation);
+J = (1/(2*m)) * summed_errors;
 
 
 % =========================================================================
