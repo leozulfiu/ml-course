@@ -49,7 +49,7 @@ X = [ones(m, 1) X];
 %                 initial_theta, options);
 %
 
-options = optimset('GradObj', 'on', 'MaxIter', 50);
+options = optimset('GradObj', 'on', 'MaxIter', 13);
 
 for i = 1:num_labels
     initial_theta = zeros(n + 1, 1);
