@@ -37,13 +37,15 @@ grad = zeros(size(theta));
 %
 
 
+h = sigmoid(X*theta);
+shifted_theta = theta(2:size(theta));
+theta_reg = [0;shifted_theta]; % add theta0 to the feature vector
 
+J = ((1/m) * (-y' * log(h) - (1 - y)' * log(1 - h)));
+J = J + (lambda/(2*m)) * theta_reg' * theta_reg; % regularization
 
-
-
-
-
-
+grad(1) = (1/m) * (X(:,1))' * (h - y);
+grad(2:size(grad)) = ((1/m) * (X(:,[2:end]))' * (h - y)) + (lambda/m)*shifted_theta;
 
 % =============================================================
 
